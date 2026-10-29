@@ -1,14 +1,17 @@
 import { useState } from "react";
 
-function Login() {
-  const [Mial, setMial] = useState("");
-  const [Pass, setPass] = useState("");
+function Login({handelLogin}) {
+  console.log(handelLogin);
+  
+  const [Email, setEmail] = useState("");
+  const [Password, setPassword] = useState("");
   const submitHandel = (e) => {
     e.preventDefault();
-    console.log(Mial);
-    console.log(Pass);
-    setPass("");
-    setMial("");
+    handelLogin(Email,Password);
+    // console.log(Email);
+    // console.log(Password);
+    setPassword("");
+    setEmail("");
   };
 
   return (
@@ -16,9 +19,9 @@ function Login() {
       <div className=" flex justify-center items-center bg-zinc-700 p-20 rounded-xl  border-2 border-solid border-gray-400">
         <form onSubmit={submitHandel} className="flex flex-col  gap-5 ">
           <input
-          value={Mial}
+          value={Email}
             onChange={(e) => {
-              setMial(e.target.value);
+              setEmail(e.target.value);
             }}
             className=" p-4 text-3xl rounded-xl w-100 h-15 border-2 border-solid border-gray-400"        
             required
@@ -26,16 +29,16 @@ function Login() {
             placeholder="username"
           />
           <input
-          value={Pass}
+          value={Password}
           onChange={(e)=>{
-            setPass(e.target.value)
+            setPassword(e.target.value)
           }}
             className=" p-4 text-3xl rounded-xl w-100 h-15 border-2 border-solid border-gray-400"
             required
-            minlength="6"
-            maxlength="8"
-            type="password"
-            placeholder="password"
+            // minlength="6"
+            // maxlength="8"
+            type="Passwordword"
+            placeholder="Passwordword"
           />
           <button className="text-3xl bg-green-500 rounded-xl w-100 h-15 ">
             Submit
